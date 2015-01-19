@@ -42,6 +42,9 @@
  */
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray;
 
+
+- (NSArray *)arrayOfCarColors:(NSArray *)carArray;
+
 /**
  Adds a quote to an existing character.
  

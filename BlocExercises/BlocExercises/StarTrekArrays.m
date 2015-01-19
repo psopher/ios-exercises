@@ -29,12 +29,18 @@
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
-    NSMutableArray *mutableContainsWorfArray = [characterArray mutableCopy];
+    NSMutableArray *mutableCharacterArray = [characterArray mutableCopy];
     
-    NSPredicate *containsWorf = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] 'worf'"];
-    [mutableContainsWorfArray filterUsingPredicate:containsWorf];
+    NSPredicate *filterer = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] 'worf'"];
     
-    return containsWorf;
+    [mutableCharacterArray filterUsingPredicate:filterer];
+    
+    
+    if (mutableCharacterArray.count == 0) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end

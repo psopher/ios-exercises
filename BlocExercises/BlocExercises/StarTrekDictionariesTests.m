@@ -15,6 +15,12 @@
 
 @property (nonatomic, strong) NSDictionary *worf;
 @property (nonatomic, strong) NSDictionary *picard;
+@property (nonatomic, strong) NSDictionary *philipsCar;
+@property (nonatomic, strong) NSDictionary *jonsCar;
+@property (nonatomic, strong) NSDictionary *joesCar;
+@property (nonatomic, strong) NSDictionary *bobsCar;
+@property (nonatomic, strong) NSDictionary *aaronsCar;
+
 
 @end
 
@@ -27,7 +33,7 @@
     
     self.starTrekDictionaries = [[StarTrekDictionaries alloc] init];
     
-    self.worf = @{@"name": @"Worf",
+    self.worf = @{@"name": @"Worf", 
                   @"rank": @"lieutenant",
                   @"information": @"son of Mogh, slayer of Gowron",
                   @"favorite drink": @"prune juice",
@@ -37,6 +43,29 @@
                     @"rank": @"captain",
                     @"information": @"Captain of the USS Enterprise",
                     @"favorite drink": @"tea, Earl Grey, hot"};
+    
+    self.philipsCar = @{@"model" : @"Mistibishi",
+                        @"year" : @"2009",
+                        @"color" : @"Blue",
+                        };
+    
+    self.jonsCar = @{@"model" : @"Toyota",
+                        @"year" : @"1999",
+                        @"color" : @"Orange",
+                        };
+    
+    self.joesCar = @{@"model" : @"Ford",
+                       @"year" : @"2005",
+                       @"color" : @"Green",
+                       };
+    self.bobsCar = @{@"model" : @"Buick",
+                       @"year" : @"2012",
+                       @"color" : @"Purple",
+                       };
+    self.aaronsCar = @{@"model" : @"Ferrari",
+                       @"year" : @"2014",
+                       @"color" : @"Red",
+                       };
 
 }
 
@@ -64,6 +93,20 @@
     expectedArray = @[@"tea, Earl Grey, hot", @"prune juice"];
     actualArray = [self.starTrekDictionaries arrayOfFavoriteDrinksForStarTrekCharacters:characterArray];
     XCTAssertEqualObjects(expectedArray, actualArray, @"Incorrect favorite drinks were returned.");
+}
+
+- (void) testThatCarArrayWorks {
+    
+    NSArray *carArray = @[self.philipsCar, self.jonsCar, self.joesCar, self.bobsCar, self.aaronsCar];
+    NSArray *expectedArray = @[@"Blue", @"Orange", @"Green", @"Purple", @"Red"];
+    NSArray *actualArray = [self.starTrekDictionaries arrayOfCarColors:carArray];
+    XCTAssertEqualObjects(expectedArray, actualArray, @"Incorrect car colors were returned.");
+    
+    carArray = @[self.philipsCar, self.jonsCar, self.joesCar, self.aaronsCar, self.bobsCar];
+    expectedArray = @[@"Blue", @"Orange", @"Green", @"Red", @"Purple"];
+    actualArray = [self.starTrekDictionaries arrayOfCarColors:carArray];
+    XCTAssertEqualObjects(expectedArray, actualArray, @"Incorrect car colors were returned.");
+    
 }
 
 - (void) testThatQuoteWasAdded {

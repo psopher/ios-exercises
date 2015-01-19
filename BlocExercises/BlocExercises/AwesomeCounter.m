@@ -13,11 +13,18 @@
 - (NSString *) stringWithNumbersBetweenNumber:(NSInteger)number andOtherNumber: (NSInteger)otherNumber {
     
     NSMutableString *stringWithNumbersBetweenNumber = [@"" mutableCopy];
-    
-    for (number = number; number < otherNumber; number++) {
-        [stringWithNumbersBetweenNumber appendString:(@"%ld", number)];
+    if (number <= otherNumber) {
+        for (NSInteger i = number; i <= otherNumber; i++) {
+            [stringWithNumbersBetweenNumber appendString: [NSString stringWithFormat:@"%li", (long)i]];
+        }
+    } else {
+        for (NSInteger i = otherNumber; i <= number; i++) {
+            [stringWithNumbersBetweenNumber appendString: [NSString stringWithFormat:@"%li", (long)i]];
+        }
     }
+    
     return stringWithNumbersBetweenNumber;
 }
 
 @end
+
