@@ -11,12 +11,21 @@
 @implementation StarTrekDictionaries
 
 - (NSString *)favoriteDrinkForStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
-    /* WORK HERE */
-    return @"";
+    
+    [characterDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
+     
+     NSString *favoriteDrink = characterDictionary[@"favorite drink"];
+     if (favoriteDrink != nil && [favoriteDrink isKindOfClass:[NSString class]]);
+     
+     return (@"%@", [characterDictionary[@"favorite drink"]]);
 }
 
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray {
-    /* WORK HERE */
+    
+    NSMutableArray *mutableCharactersArray = [charactersArray mutablecopy];
+    
+    mutableCharactersArray = @[ ];
+    
     return @[];
 }
 
@@ -26,3 +35,5 @@
 }
 
 @end
+
+
