@@ -18,18 +18,18 @@
     
     NSInteger numberTimesTwo = intNumber * two;
     
-    return [NSNumber numberWithInt:numberTimesTwo];
+    return [NSNumber numberWithInteger:numberTimesTwo];
 }
 
 - (NSArray *) arrayOfNumbersBetweenNumber:(NSInteger)number andOtherNumber: (NSInteger)otherNumber {
     
     NSMutableArray *numbersBetween = [NSMutableArray new];
     if (number <= otherNumber) {
-        for (int i = number; i <= otherNumber; i++) {
+        for (NSInteger i = number; i <= otherNumber; i++) {
             [numbersBetween addObject:@(i)];
         }
     } else {
-        for (int i = otherNumber; i < number; i++) {
+        for (NSInteger i = otherNumber; i < number; i++) {
             [numbersBetween addObject:@(i)];
         }
     }
