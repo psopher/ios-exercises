@@ -7,15 +7,14 @@ Strings
 */
 
 func favoriteCheeseStringWithCheese(cheese: String) -> String {
-    var cheese = "cheddar"
-    return cheese
+    var cheeseSentence = "My favorite cheese is \(cheese)."
+    return cheeseSentence
 }
 
-var fullSentence = favoriteCheeseStringWithCheese("cheddar")
+var fullSentence = favoriteCheeseStringWithCheese("pepper jack")
 // Make fullSentence say "My favorite cheese is cheddar."
 
-fullSentence = "My favorite cheese is \(favoriteCheeseStringWithCheese)"
-
+fullSentence = favoriteCheeseStringWithCheese("cheddar")
 /*
 
 Arrays & Dictionaries
@@ -42,10 +41,18 @@ for var i = 1; i <= 10; i++ {
     print ("\(i) ")
 }
 
+for i in 1...10{
+    print ("\(i) ")
+}
+
 
 // Use a half-closed range loop to print 1 - 10, inclusively
 for var q = 1; q < 11; q++ {
     print ("\(q) ")
+}
+
+for i in 1..<11{
+    print ("\(i) ")
 }
 
 let worf = [
@@ -63,18 +70,23 @@ let picard = [
 
 let characters = [worf, picard]
 
-var returnValue : Array
+var returnValue : [String]
 
 func favoriteDrinksArrayForCharacters(characters:Array<Dictionary<String, String>>) -> Array<String> {
     // return an array of favorite drinks, like ["prune juice", "tea, Earl Grey, hot"]
-    for var x = 1; x <= 2; x++ {
+    
+    for var x = 1; x <= characters.count; x++ {
         for (characteristic, descriptionOfCharacteristic) in characters[x] {
-            if characteristic = "favorite drink" {
-                returnValue += [\descriptionOfCharacteristic, ]
+            if characteristic == "favorite drink" {
+                if x == 1 {
+                    returnValue = [descriptionOfCharacteristic]
+                } else {
+                    returnValue += [, descriptionOfCharacteristic]
+                }
             }
         }
     }
-    return [returnValue]
+    return returnValue
 }
 
 let favoriteDrinks = favoriteDrinksArrayForCharacters(characters)
@@ -92,13 +104,13 @@ Functions
 let strings = ["milk", "eggs", "bread", "challah"]
 
 func stringSeparatedBySemiColon(items : String) {
-    for var i = 1; i <= 4; i++ {
+    for var i = 1; i <= strings.count; i++ {
         items = "\strings[i];"
     }
     
 }
 
-let expectedOutput = "milk;eggs;bread;challah"
+//let expectedOutput = "milk;eggs;bread;challah"
 
 /*
 
